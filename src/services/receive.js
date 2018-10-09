@@ -5,6 +5,7 @@
  */
 
 const axios = require('axios');
+const API_ENDPOINT = 'https://api.stackexchange.com/2.2';
 
 
 /**
@@ -15,7 +16,7 @@ const axios = require('axios');
  */
 const receiveQuestions = (page = 0) => {
   page = page ? `&page=${page}` : '';
-  const url = `https://api.stackexchange.com/2.2/questions?order=desc&filter=withbody&sort=activity&site=stackoverflow${page}`;
+  const url = `${API_ENDPOINT}/questions?order=desc&filter=withbody&sort=activity&site=stackoverflow${page}`;
   return axios.get(url + page);
 }
 
